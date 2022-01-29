@@ -73,14 +73,14 @@ def main():
             data_cut = cut.CutTemplate(data.tobytes())
             enroll_ans = enroll.RunEnrollment(data_cut)
 
-            check_enroll_output(enroll_ans)
+        check_enroll_output(enroll_ans)
 
-            filename = args.model_name
-            print("saving file to %s" % filename)
-            f = open(filename, "wb")
-            f.write(open(out.name).read())
-            f.close()
-            print("finished")
+        filename = args.model_name
+        print("saving file to %s" % filename)
+        f = open(filename, "wb")
+        f.write(open(out.name).read())
+        f.close()
+        print("finished")
     else:
         print('No wav files found')
 
