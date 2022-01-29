@@ -1,5 +1,6 @@
 
 import argparse
+from ast import arg
 import tempfile
 import uuid
 from scipy.io import wavfile
@@ -29,6 +30,8 @@ def main():
                         help="Record voice 2")
     parser.add_argument('-r3', '--record3', dest="record3",
                         help="Record voice 3")
+    parser.add_argument('-r4', '--record4', dest="record4",
+                        help="Record voice 4")
     parser.add_argument('-n', '--name', dest="model_name",
                         help="Personal model name")
     parser.add_argument('-lang', '--language', default="en",
@@ -40,9 +43,9 @@ def main():
         if args.record1 or args.record2 or args.record3:
             print('Warning: The recordings provided using -r1, -r2, and -r3 will be overridden by the files in the directory.')
         if len(recording_set) < 3:
-            raise exit('The directory needs to contain at least 3 wav files')
-    elif args.record1 and args.record2 and args.record3:
-        recording_set = [args.record1, args.record2, args.record3]
+            raise exit('The directory needs to contain at least 4 wav files')
+    elif args.record1 and args.record2 and args.record3 and args.record4:
+        recording_set = [args.record1, args.record2, args.record3, args.record4]
     else:
         raise exit(
             'Please specify either three wav file or a directory containing the wav files.')
